@@ -10,8 +10,8 @@ export default function ToolPage() {
     <div className="bg-zinc-950 min-h-screen text-white">
       <Navbar />
       <main className="p-4 max-w-3xl mx-auto min-h-[70vh]">
-        <h1 className="text-3xl font-bold mb-4 text-white">Base64 Encode/Decode</h1>
-        <p className="text-gray-400 mb-6">Encode atau decode teks dalam format Base64.</p>
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Base64 Encode/Decode</h1>
+        <p className="text-gray-500 mb-6">Encode atau decode teks dalam format Base64.</p>
 
         <div className="bg-white p-6 rounded-lg shadow">
           <TextToolForm

@@ -9,7 +9,7 @@
   z-index: 10;
 }
 .tools-container:hover .tool-card:not(:hover) {
-  filter: blur(2px);
+  filter: blur(0.5px);
   opacity: 0.6;
 }
 

@@ -1,12 +1,16 @@
+// Ini adalah komponen ToolForm reusable untuk semua tools
 'use client'
 
 import { useState } from 'react'
 
 interface ToolFormProps {
-  endpoint: string // endpoint backend misalnya /api/pdf-to-word
+  endpoint: string
+  accept?: string
+  title?: string
+  buttonLabel?: string
 }
 
-export default function ToolForm({ endpoint }: ToolFormProps) {
+export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 'Submit' }: ToolFormProps) {
   const [file, setFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
@@ -26,10 +30,9 @@ export default function ToolForm({ endpoint }: ToolFormProps) {
         method: 'POST',
         body: formData,
       })
-
       const result = await res.json()
       if (res.ok) {
-        setMessage(`✅ Konversi berhasil. [${result.filename}]`)
+        setMessage(`✅ Berhasil: ${result.filename || 'file diproses'}`)
       } else {
         setMessage(`❌ Gagal: ${result.error || 'Terjadi kesalahan.'}`)
       }
@@ -41,26 +44,35 @@ export default function ToolForm({ endpoint }: ToolFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <label className="block text-gray-800 font-medium">
-        Unggah file PDF:
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={(e) => setFile(e.target.files?.[0] || null)}
-          className="block mt-1 text-gray-800"
-        />
-      </label>
+    <form onSubmit={handleSubmit} className="space-y-4 text-gray-800">
+      {title && <h3 className="text-lg font-semibold">{title}</h3>}
+
+      <div>
+        <label className="block text-sm font-medium mb-2">Pilih file :</label>
+
+        <div className="relative w-fit">
+          <label className="bg-gray-500 text-white px-1 py-1 rounded cursor-pointer hover:bg-blue-700">
+            Chose File
+            <input
+              type="file"
+              accept={accept}
+              onChange={(e) => setFile(e.target.files?.[0] || null)}
+              className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
+            />
+          </label>
+          {file && <p className="mt-1 text-sm">{file.name}</p>}
+        </div>
+      </div>
 
       <button
         type="submit"
         disabled={!file || loading}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 disabled:bg-gray-400"
       >
-        {loading ? 'Mengonversi...' : 'Konversi ke Word'}
+        {loading ? 'Memproses...' : buttonLabel}
       </button>
 
-      {message && <p className="text-sm text-gray-800">{message}</p>}
+      {message && <p className="text-sm mt-2">{message}</p>}
     </form>
   )
 }

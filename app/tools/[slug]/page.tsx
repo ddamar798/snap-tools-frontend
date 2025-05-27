@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
+import ToolForm from '../../../components/ToolForm'
 
 const tools = [
   { slug: 'pdf-to-word', title: 'PDF to Word', description: 'Ubah file PDF ke format Word.' },
@@ -30,10 +31,9 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
         <h1 className="text-3xl text-gray-800 font-bold mb-2">{tool.title}</h1>
         <p className="text-gray-800 mb-6">{tool.description}</p>
 
-        <div className="bg-zinc-800 p-6 rounded-lg shadow">
-          {/* Di sini nanti ToolForm akan muncul */}
-          <p className="text-sm text-gray-800">Fitur ini sedang dikembangkan...</p>
-        </div>
+        <div className="bg-white p-6 rounded-lg shadow">
+        <ToolForm endpoint="http://localhost:8080/api/tools/pdf-to-word" />
+            </div>
       </main>
       <Footer />
     </div>

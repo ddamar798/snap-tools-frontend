@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* globals.css */
 
 .tool-card {
@@ -13,9 +15,7 @@
   opacity: 0.6;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 /* Animasi untuk toast */
 @keyframes fade-in-up {

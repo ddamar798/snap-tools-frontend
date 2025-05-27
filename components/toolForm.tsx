@@ -52,7 +52,7 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
         <label className="block text-sm font-medium mb-1">Pilih File:</label>
 
         <div className="relative w-fit">
-          <label className="bg-gray-500 text-white px-2.5 py-1 rounded cursor-pointer hover:bg-gray-200">
+          <label className="bg-gray-500 text-white px-2.5 py-1 rounded cursor-pointer hover:bg-gray-300">
             Chose File
             <input
               type="file"

@@ -3,6 +3,7 @@
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import ToolForm from '../../../components/ToolForm'
+import TextToolForm from '../../../components/TextToolForm'
 
 export default function ToolPage() {
   return (

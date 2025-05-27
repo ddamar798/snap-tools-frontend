@@ -1,7 +1,7 @@
-// Ini adalah komponen ToolForm reusable untuk semua tools
 'use client'
 
 import { useState } from 'react'
+import FancyButton from './FancyButton'
 
 interface ToolFormProps {
   endpoint: string
@@ -30,6 +30,7 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
         method: 'POST',
         body: formData,
       })
+
       const result = await res.json()
       if (res.ok) {
         setMessage(`✅ Berhasil: ${result.filename || 'file diproses'}`)
@@ -48,11 +49,11 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
       {title && <h3 className="text-lg font-semibold">{title}</h3>}
 
       <div>
-        <label className="block text-sm font-medium mb-2">Pilih file :</label>
+        <label className="block text-sm font-medium mb-1">Pilih file:</label>
 
         <div className="relative w-fit">
-          <label className="bg-gray-500 text-white px-1 py-1 rounded cursor-pointer hover:bg-blue-700">
-            Chose File
+          <label className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700">
+            Pilih File
             <input
               type="file"
               accept={accept}
@@ -64,13 +65,7 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
         </div>
       </div>
 
-      <button
-        type="submit"
-        disabled={!file || loading}
-        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 disabled:bg-gray-400"
-      >
-        {loading ? 'Memproses...' : buttonLabel}
-      </button>
+      <FancyButton type="submit" label={loading ? 'Memproses...' : buttonLabel} />
 
       {message && <p className="text-sm mt-2">{message}</p>}
     </form>

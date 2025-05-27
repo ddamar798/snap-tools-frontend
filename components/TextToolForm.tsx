@@ -1,8 +1,7 @@
-// Komponen khusus untuk tool berbasis teks (Word Counter, Case Converter, dll)
 'use client'
-import FancyButton from './FancyButton'
 
 import { useState } from 'react'
+import FancyButton from './FancyButton'
 
 interface TextToolFormProps {
   endpoint: string
@@ -51,10 +50,7 @@ export default function TextToolForm({ endpoint, title, buttonLabel = 'Proses' }
         placeholder="Tulis atau tempelkan teks di sini..."
       />
 
-      <FancyButton
-  type="submit"
-  label={loading ? 'Memproses...' : buttonLabel}
-/>
+      <FancyButton type="submit" label={loading ? 'Memproses...' : buttonLabel} />
 
       {result && <p className="mt-2 text-sm">Hasil: {result}</p>}
     </form>

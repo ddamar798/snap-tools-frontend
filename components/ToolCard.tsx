@@ -1,6 +1,7 @@
 // components/ToolCard.tsx
 
 import Link from 'next/link'
+import FancyButton from './FancyButton'
 
 // Komponen ini menerima props dari halaman utama
 interface ToolCardProps {

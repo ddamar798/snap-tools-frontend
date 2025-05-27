@@ -49,11 +49,11 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
       {title && <h3 className="text-lg font-semibold">{title}</h3>}
 
       <div>
-        <label className="block text-sm font-medium mb-1">Pilih file:</label>
+        <label className="block text-sm font-medium mb-1">Pilih File:</label>
 
         <div className="relative w-fit">
-          <label className="bg-blue-600 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-700">
-            Pilih File
+          <label className="bg-gray-500 text-white px-2.5 py-1 rounded cursor-pointer hover:bg-gray-200">
+            Chose File
             <input
               type="file"
               accept={accept}

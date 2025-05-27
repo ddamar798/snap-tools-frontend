@@ -33,6 +33,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
         <div className="bg-white p-6 rounded-lg shadow">
         <ToolForm endpoint="http://localhost:8080/api/tools/pdf-to-word" />
+
             </div>
       </main>
       <Footer />

@@ -9,7 +9,7 @@ export default function ToolPage() {
     <div className="bg-zinc-950 min-h-screen text-white">
       <Navbar />
       <main className="p-4 max-w-3xl mx-auto min-h-[70vh]">
-        <h1 className="text-3xl font-bold mb-4 text-white">Case Converter</h1>
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">Case Converter</h1>
         <p className="text-gray-400 mb-6">Ubah huruf ke UPPERCASE atau lowercase.</p>
 
         <div className="bg-white p-6 rounded-lg shadow">

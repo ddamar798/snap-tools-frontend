@@ -2,7 +2,7 @@
 
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
-import ToolForm from '../../../components/ToolForm'
+import TextToolForm from '../../../components/TextToolForm'
 
 export default function ToolPage() {
   return (
@@ -13,7 +13,11 @@ export default function ToolPage() {
         <p className="text-gray-400 mb-6">Hitung jumlah kata dan karakter dari teks.</p>
 
         <div className="bg-white p-6 rounded-lg shadow">
-          <ToolForm endpoint="http://localhost:8080/api/tools/word-counter" accept=".txt" title="Unggah File" buttonLabel="Hitung Kata" />
+          <TextToolForm
+            endpoint="http://localhost:8080/api/tools/word-counter"
+            title="Masukkan teks"
+            buttonLabel="Hitung Kata"
+          />
         </div>
       </main>
       <Footer />

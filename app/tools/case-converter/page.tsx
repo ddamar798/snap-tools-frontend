@@ -2,7 +2,7 @@
 
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
-import ToolForm from '../../../components/ToolForm'
+import TextToolForm from '../../../components/TextToolForm'
 
 export default function ToolPage() {
   return (
@@ -13,7 +13,11 @@ export default function ToolPage() {
         <p className="text-gray-400 mb-6">Ubah huruf ke UPPERCASE atau lowercase.</p>
 
         <div className="bg-white p-6 rounded-lg shadow">
-          <ToolForm endpoint="http://localhost:8080/api/tools/case-converter" accept=".txt" title="Unggah File" buttonLabel="Konversi Huruf" />
+          <TextToolForm
+            endpoint="http://localhost:8080/api/tools/case-converter"
+            title="Masukkan teks"
+            buttonLabel="Konversi Huruf"
+          />
         </div>
       </main>
       <Footer />

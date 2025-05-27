@@ -2,7 +2,7 @@
 
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
-import ToolForm from '../../../components/ToolForm'
+import TextToolForm from '../../../components/TextToolForm'
 
 export default function ToolPage() {
   return (
@@ -10,10 +10,14 @@ export default function ToolPage() {
       <Navbar />
       <main className="p-4 max-w-3xl mx-auto min-h-[70vh]">
         <h1 className="text-3xl font-bold mb-4 text-white">Text to Speech</h1>
-        <p className="text-gray-400 mb-6">Ubah teks menjadi suara dengan AI.</p>
+        <p className="text-gray-400 mb-6">Ubah teks menjadi suara.</p>
 
         <div className="bg-white p-6 rounded-lg shadow">
-          <ToolForm endpoint="http://localhost:8080/api/tools/text-to-speech" accept=".txt" title="Unggah File" buttonLabel="Ubah ke Suara" />
+          <TextToolForm
+            endpoint="http://localhost:8080/api/tools/text-to-speech"
+            title="Masukkan teks"
+            buttonLabel="Ubah ke Suara"
+          />
         </div>
       </main>
       <Footer />

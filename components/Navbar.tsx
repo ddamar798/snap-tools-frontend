@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Navbar() {
   return (
-    <nav className="bg-zinc-900 text-white px-4 py-3 flex items-center justify-between shadow">
+    <nav className="bg-zinc-900 text-gray-800 px-4 py-3 flex items-center justify-between shadow">
       <Link href="/" className="flex items-center space-x-2">
         {/* Logo kiri */}
         <Image

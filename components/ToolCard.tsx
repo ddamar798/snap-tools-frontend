@@ -12,7 +12,7 @@ interface ToolCardProps {
 
 export default function ToolCard({ title, description, slug, icon }: ToolCardProps) {
   return (
-    <div className="bg-white shadow rounded-xl p-4 transition hover:shadow-md">
+    <div className="bg-zinc-800 shadow rounded-xl p-4 transition hover:shadow-md">
       <div className="flex items-center space-x-3">
         {/* Ikon atau Emoji */}
         <div className="text-3xl">{icon}</div>

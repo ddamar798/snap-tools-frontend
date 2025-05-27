@@ -90,7 +90,7 @@ export default function Home() {
     <div className="bg-zinc-950 text-white min-h-screen">
       <Navbar />
       <main className="p-4 max-w-6xl mx-auto min-h-[70vh]">
-        <h1 className="text-2xl font-bold mb-6 text-center text-white">Pilih Tool yang Kamu Butuhkan</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">Pilih Tool yang Kamu Butuhkan</h1>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 tools-container">
           {tools.map((tool) => (

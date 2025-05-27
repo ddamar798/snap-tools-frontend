@@ -12,3 +12,22 @@
   filter: blur(2px);
   opacity: 0.6;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animasi untuk toast */
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.3s ease-in-out;
+}

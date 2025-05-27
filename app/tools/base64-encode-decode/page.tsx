@@ -4,6 +4,7 @@ import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
 import TextToolForm from '../../../components/TextToolForm'
 
+
 export default function ToolPage() {
   return (
     <div className="bg-zinc-950 min-h-screen text-white">

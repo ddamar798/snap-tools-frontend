@@ -9,11 +9,11 @@ export default function ToolPage() {
     <div className="bg-zinc-950 min-h-screen text-white">
       <Navbar />
       <main className="p-4 max-w-3xl mx-auto min-h-[70vh]">
-        <h1 className="text-3xl font-bold mb-4 text-white">Resize Image</h1>
-        <p className="text-gray-400 mb-6">Ubah ukuran gambar sesuai kebutuhan.</p>
+        <h1 className="text-3xl font-bold mb-4 text-white">QR Code Generator</h1>
+        <p className="text-gray-400 mb-6">Buat QR Code dari teks atau tautan.</p>
 
         <div className="bg-white p-6 rounded-lg shadow">
-          <ToolForm endpoint="http://localhost:8080/api/tools/resize-image" accept="image/*" title="Unggah File" buttonLabel="Ubah Ukuran" />
+          <p className="text-gray-800">Form ini akan menggunakan input teks khusus.</p>
         </div>
       </main>
       <Footer />

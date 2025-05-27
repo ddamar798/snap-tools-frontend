@@ -1,10 +1,11 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import ToolCard from '../components/ToolCard'
+import '../app/globals.css' // pastikan efek hover ada
 
 export default function Home() {
   const tools = [
-    // PDF Tools
+    // ... (tidak perlu diubah, daftar tools tetap)
     {
       title: 'PDF to Word',
       description: 'Ubah file PDF ke format Word.',
@@ -29,8 +30,6 @@ export default function Home() {
       slug: 'compress-pdf',
       icon: '📉',
     },
-
-    // Image Tools
     {
       title: 'Image to Text (OCR)',
       description: 'Ekstrak teks dari gambar secara otomatis.',
@@ -49,8 +48,6 @@ export default function Home() {
       slug: 'convert-to-webp',
       icon: '🖼️',
     },
-
-    // Text Tools
     {
       title: 'Text to Speech',
       description: 'Ubah teks menjadi suara secara instan.',
@@ -69,8 +66,6 @@ export default function Home() {
       slug: 'word-counter',
       icon: '🔢',
     },
-
-    // Developer Tools
     {
       title: 'JSON Formatter',
       description: 'Format dan beautify data JSON.',
@@ -92,24 +87,25 @@ export default function Home() {
   ]
 
   return (
-    <>
+    <div className="bg-zinc-950 text-white min-h-screen">
       <Navbar />
       <main className="p-4 max-w-6xl mx-auto min-h-[70vh]">
-        <h1 className="text-2xl font-bold mb-6">Pilih Tool yang Kamu Butuhkan</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center text-white">Pilih Tool yang Kamu Butuhkan</h1>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 tools-container">
           {tools.map((tool) => (
-            <ToolCard
-              key={tool.slug}
-              title={tool.title}
-              description={tool.description}
-              slug={tool.slug}
-              icon={tool.icon}
-            />
+            <div key={tool.slug} className="tool-card bg-zinc-800 p-4 rounded-lg shadow hover:shadow-lg">
+              <ToolCard
+                title={tool.title}
+                description={tool.description}
+                slug={tool.slug}
+                icon={tool.icon}
+              />
+            </div>
           ))}
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

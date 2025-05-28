@@ -29,17 +29,28 @@ export default function TextToolForm({ endpoint, title, buttonLabel = 'Proses' }
         body: JSON.stringify({ text }),
       })
       const data = await res.json()
-      if (res.ok) {
-        setResult(data.result || 'Berhasil')
+      if (res.ok && data.result) {
+        setResult(data.result)
         setToast({ message: '✅ Proses berhasil.', type: 'success' })
       } else {
-        setToast({ message: `❌ ${data.error || 'Terjadi kesalahan.'}`, type: 'error' })
+        setToast({ message: data.error || 'Terjadi kesalahan.', type: 'error' })
       }
-    } catch (err) {
+    } catch {
       setToast({ message: '❌ Gagal terhubung ke server.', type: 'error' })
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleDownload = () => {
+    if (!result) return
+    const blob = new Blob([result], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'hasil.txt'
+    a.click()
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -56,7 +67,20 @@ export default function TextToolForm({ endpoint, title, buttonLabel = 'Proses' }
         />
 
         <FancyButton type="submit" label={loading ? 'Memproses...' : buttonLabel} />
-        {result && <p className="mt-2 text-sm">Hasil: {result}</p>}
+
+        {result && (
+          <div className="mt-4 space-y-2">
+            <p className="text-sm">Hasil:</p>
+            <textarea readOnly value={result} className="w-full p-2 border rounded text-gray-800" rows={4} />
+            <button
+              type="button"
+              onClick={handleDownload}
+              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            >
+              Unduh Hasil
+            </button>
+          </div>
+        )}
       </form>
 
       {toast && (

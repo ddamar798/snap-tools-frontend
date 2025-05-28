@@ -14,6 +14,7 @@ interface ToolFormProps {
 export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 'Submit' }: ToolFormProps) {
   const [file, setFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
+  const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
   const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,6 +22,7 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
     if (!file) return
 
     setLoading(true)
+    setDownloadUrl(null)
     setToast(null)
 
     const formData = new FormData()
@@ -33,10 +35,11 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
       })
 
       const result = await res.json()
-      if (res.ok) {
-        setToast({ message: `✅ Berhasil: ${result.filename || 'file diproses'}`, type: 'success' })
+      if (res.ok && result.downloadUrl) {
+        setDownloadUrl(result.downloadUrl)
+        setToast({ message: '✅ File siap diunduh!', type: 'success' })
       } else {
-        setToast({ message: `❌ ${result.error || 'Terjadi kesalahan.'}`, type: 'error' })
+        setToast({ message: result.error || '❌ Gagal memproses file.', type: 'error' })
       }
     } catch {
       setToast({ message: '❌ Gagal terhubung ke server.', type: 'error' })
@@ -68,6 +71,16 @@ export default function ToolForm({ endpoint, accept = '*', title, buttonLabel = 
         </div>
 
         <FancyButton type="submit" label={loading ? 'Memproses...' : buttonLabel} />
+
+        {downloadUrl && (
+          <a
+            href={downloadUrl}
+            download
+            className="inline-block mt-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          >
+            Unduh Hasil
+          </a>
+        )}
       </form>
 
       {toast && (

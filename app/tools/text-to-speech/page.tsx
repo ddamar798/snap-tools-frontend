@@ -1,26 +1,17 @@
-'use client'
-
-import Navbar from '../../../components/Navbar'
-import Footer from '../../../components/Footer'
-import TextToolForm from '../../../components/TextToolForm'
-
-export default function ToolPage() {
-  return (
-    <div className="bg-zinc-950 min-h-screen text-white">
-      <Navbar />
-      <main className="p-4 max-w-3xl mx-auto min-h-[70vh]">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">Text to Speech</h1>
-        <p className="text-gray-400 mb-6">Ubah teks menjadi suara.</p>
-
-        <div className="bg-white p-6 rounded-lg shadow">
-          <TextToolForm
-            endpoint="http://localhost:8080/api/tools/text-to-speech"
-            title="Masukkan teks"
-            buttonLabel="Ubah ke Suara"
-          />
-        </div>
-      </main>
-      <Footer />
-    </div>
-  )
-}
+<div className="bg-white dark:bg-gray-900 text-center p-10 rounded-xl shadow text-gray-800 dark:text-white">
+  <h1 className="text-2xl font-bold mb-4">🚧 Feature Under Development</h1>
+  <p className="text-lg mb-4">
+    This tool is currently under development and not yet available.
+  </p>
+  <p className="mb-6">
+    If you'd like to support the development, consider donating below 💖
+  </p>
+  <a
+    href="https://trakteer.id/snaptools" // Ganti dengan link donasi kamu!
+    className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Donate Now
+  </a>
+</div>
